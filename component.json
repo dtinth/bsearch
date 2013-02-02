@@ -1,0 +1,6 @@
+{
+  "name": "bsearch"
+, "version": "0.1.0"
+, "main": ["./bsearch.js"]
+, "dependencies": {}
+}
