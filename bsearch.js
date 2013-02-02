@@ -3,7 +3,7 @@ var Bsearch = function() {
 
   function bsearch(arr, value) {
     if (value == null) return bind(arr)
-    var min = 0, max = arr.length, left = min, right = max
+    var min = 0, max = arr.length - 1, left = min, right = max
     while (left <= right) {
       var mid = Math.floor((left + right) / 2)
       if (arr[mid] <= value) {
