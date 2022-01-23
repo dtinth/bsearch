@@ -18,6 +18,24 @@ describe('firstIndex', () => {
   })
 })
 
+describe('lastIndex', () => {
+  it('finds the last index satisfying the predicate', () => {
+    const arr = [-10, -3, 0.05, 1, 28]
+    const getInsertionIndex = (valueToInsert: number) => {
+      const index = bsearch.lastIndex(arr, (value) => valueToInsert >= value)
+      return index + 1
+    }
+    expect(getInsertionIndex(-99)).toBe(0)
+    expect(getInsertionIndex(-10)).toBe(1)
+    expect(getInsertionIndex(-9)).toBe(1)
+    expect(getInsertionIndex(0)).toBe(2)
+    expect(getInsertionIndex(1)).toBe(4)
+    expect(getInsertionIndex(4)).toBe(4)
+    expect(getInsertionIndex(28)).toBe(5)
+    expect(getInsertionIndex(28.01)).toBe(5)
+  })
+})
+
 describe('lastElement', () => {
   it('finds the last element satisfying the predicate', () => {
     var book = [

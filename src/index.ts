@@ -1,12 +1,16 @@
 /**
- * Returns the first integer value in range [`min`, `max`] that is accepted by the `predicate`.
+ * Utility functions for performing binary search in various scenarios.
+ * @packageDocumentation
+ */
+/**
+ * Returns the smallest integer value in range [`min`, `max`] that is accepted by the `predicate`.
  * @param min - The minimum value to search for.
  * @param max - The maximum value to search for.
  * @param predicate - A predicate. There should exist some value `X` such that `predicate(x)` returns true for all `x >= X` and returns false otherwise.
- * @returns The first integer value whose predicate returns `true`, or `undefined` if no such value exists.
+ * @returns The smallest integer value whose predicate returns `true`, or `undefined` if no such value exists.
  * @public
  */
-export function firstInt(
+export function smallestInt(
   min: number,
   max: number,
   predicate: (value: number) => boolean,
@@ -35,7 +39,7 @@ export function firstIndex<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): number {
-  const found = firstInt(0, array.length - 1, (index) =>
+  const found = smallestInt(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
   )
   return found === undefined ? -1 : found
@@ -57,14 +61,14 @@ export function firstElement<T>(
 }
 
 /**
- * Returns the last integer value in range [`min`, `max`] that is accepted by the `predicate`.
+ * Returns the largest integer value in range [`min`, `max`] that is accepted by the `predicate`.
  * @param min - The minimum value to search for.
  * @param max - The maximum value to search for.
  * @param predicate - A predicate. There should exist some value `X` such that `predicate(x)` returns true for all `x <= X` and returns false otherwise.
- * @returns The last integer value whose predicate returns `true`, or `undefined` if no such value exists.
+ * @returns The largest integer value whose predicate returns `true`, or `undefined` if no such value exists.
  * @public
  */
-export function lastInt(
+export function largestInt(
   min: number,
   max: number,
   predicate: (value: number) => boolean,
@@ -93,7 +97,7 @@ export function lastIndex<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): number {
-  const found = lastInt(0, array.length - 1, (index) =>
+  const found = largestInt(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
   )
   return found === undefined ? -1 : found
@@ -171,14 +175,14 @@ export function largestFloat(
 }
 
 /**
- * Returns the first integer value in range [`min`, `max`] that is accepted by the `predicate`.
+ * Returns the smallest integer value in range [`min`, `max`] that is accepted by the `predicate`.
  * @param min - The minimum value to search for.
  * @param max - The maximum value to search for.
  * @param predicate - A predicate. There should exist some value `X` such that `predicate(x)` returns true for all `x >= X` and returns false otherwise.
- * @returns A promise that resolves to the first integer value whose predicate returns `true`, or `undefined` if no such value exists.
+ * @returns A promise that resolves to the smallest integer value whose predicate returns `true`, or `undefined` if no such value exists.
  * @public
  */
-export async function firstIntAsync(
+export async function smallestIntAsync(
   min: number,
   max: number,
   predicate: (value: number) => PromiseLike<boolean>,
@@ -211,7 +215,7 @@ export async function firstIndexAsync<T>(
     array: readonly T[],
   ) => PromiseLike<boolean>,
 ): Promise<number> {
-  const found = await firstIntAsync(0, array.length - 1, (index) =>
+  const found = await smallestIntAsync(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
   )
   return found === undefined ? -1 : found
@@ -237,14 +241,14 @@ export async function firstElementAsync<T>(
 }
 
 /**
- * Returns the last integer value in range [`min`, `max`] that is accepted by the `predicate`.
+ * Returns the largest integer value in range [`min`, `max`] that is accepted by the `predicate`.
  * @param min - The minimum value to search for.
  * @param max - The maximum value to search for.
  * @param predicate - A predicate. There should exist some value `X` such that `predicate(x)` returns true for all `x <= X` and returns false otherwise.
- * @returns A promise that resolves to the last integer value whose predicate returns `true`, or `undefined` if no such value exists.
+ * @returns A promise that resolves to the largest integer value whose predicate returns `true`, or `undefined` if no such value exists.
  * @public
  */
-export async function lastIntAsync(
+export async function largestIntAsync(
   min: number,
   max: number,
   predicate: (value: number) => PromiseLike<boolean>,
@@ -277,7 +281,7 @@ export async function lastIndexAsync<T>(
     array: readonly T[],
   ) => PromiseLike<boolean>,
 ): Promise<number> {
-  const found = await lastIntAsync(0, array.length - 1, (index) =>
+  const found = await largestIntAsync(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
   )
   return found === undefined ? -1 : found

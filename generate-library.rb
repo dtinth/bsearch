@@ -44,7 +44,7 @@ def wrapper(async_flag)
   async_flag ? WrapAsync.new : WrapSync.new
 end
 
-def write_int(f, prefix, op, true_pos, async_flag)
+def write_int(f, prefix, prefix_a, op, true_pos, async_flag)
   wrap = wrapper(async_flag)
   f << <<-EOF
 /**
@@ -74,13 +74,13 @@ export #{wrap.function} #{wrap.name prefix + 'Int'}(
 }
 
 /**
- * Returns the #{prefix} index in `array` whose value satisfies the `predicate`.
+ * Returns the #{prefix_a} index in `array` whose value satisfies the `predicate`.
  * @param array - The array to search.
  * @param predicate - A predicate. There should exist some index `I` such that `predicate(array[i])` returns true for all `i #{op} I` and returns false otherwise.
- * @returns #{wrap.return_doc} #{prefix} index in `array` whose value satisfies the `predicate`, or `-1` if no such index exists.
+ * @returns #{wrap.return_doc} #{prefix_a} index in `array` whose value satisfies the `predicate`, or `-1` if no such index exists.
  * @public
  */
-export #{wrap.function} #{wrap.name prefix + 'Index'}<T>(
+export #{wrap.function} #{wrap.name prefix_a + 'Index'}<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => #{wrap.predicate_type},
 ): #{wrap.return_type 'number'} {
@@ -91,17 +91,17 @@ export #{wrap.function} #{wrap.name prefix + 'Index'}<T>(
 }
 
 /**
- * Returns the #{prefix} element in `array` whose value satisfies the `predicate`.
+ * Returns the #{prefix_a} element in `array` whose value satisfies the `predicate`.
  * @param array - The array to search.
  * @param predicate - A predicate. There should exist some index `I` such that `predicate(array[i])` returns true for all `i #{op} I` and returns false otherwise.
- * @returns #{wrap.return_doc} #{prefix} element in `array` whose value satisfies the `predicate`, or `undefined` if no such element exists.
+ * @returns #{wrap.return_doc} #{prefix_a} element in `array` whose value satisfies the `predicate`, or `undefined` if no such element exists.
  * @public
  */
-export #{wrap.function} #{wrap.name prefix + 'Element'}<T>(
+export #{wrap.function} #{wrap.name prefix_a + 'Element'}<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => #{wrap.predicate_type},
 ): #{wrap.return_type 'T | undefined'} {
-  const index = #{wrap.value wrap.name prefix + 'Index'}(array, predicate)
+  const index = #{wrap.value wrap.name prefix_a + 'Index'}(array, predicate)
   return index === -1 ? undefined : array[index]
 }
 
@@ -143,9 +143,15 @@ EOF
 end
 
 File.open('src/index.ts', 'w') do |output|
+  output << <<-EOF
+/**
+ * Utility functions for performing binary search in various scenarios.
+ * @packageDocumentation
+ */
+EOF
   [false, true].each do |async_flag|
-    write_int(output, 'first', '>=', :right, async_flag)
-    write_int(output, 'last', '<=', :left, async_flag)
+    write_int(output, 'smallest', 'first', '>=', :right, async_flag)
+    write_int(output, 'largest', 'last', '<=', :left, async_flag)
 
     write_float(output, 'smallest', '>=', :right, async_flag)
     write_float(output, 'largest', '<=', :left, async_flag)
