@@ -1,6 +1,6 @@
 {
   "name": "bsearch",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "Binary Search for JavaScript",
   "main": "./lib-commonjs/index.js",
   "scripts": {
