@@ -1,10 +1,15 @@
 {
   "name": "bsearch",
-  "version": "0.1.1",
+  "version": "1.0.0-0",
   "description": "Binary Search for JavaScript",
-  "main": "bsearch.js",
+  "main": "./lib-commonjs/index.js",
   "scripts": {
-    "test": "npm test.js"
+    "test": "heft test",
+    "build": "heft build",
+    "prepare": "heft build && ./scripts/generate-api-docs",
+    "release": "release-it",
+    "format": "prettier --write .",
+    "api": "./scripts/generate-api-docs"
   },
   "repository": {
     "type": "git",
@@ -12,5 +17,22 @@
   },
   "author": "Thai Pangsakulyanont <org.yi.dttvb@gmail.com>",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "files": [
+    "src",
+    "lib",
+    "lib-commonjs",
+    "dist"
+  ],
+  "module": "./lib/index.js",
+  "types": "./dist/bsearch.d.ts",
+  "docModel": "./dist/bsearch.api.json",
+  "devDependencies": {
+    "@rushstack/heft": "0.44.2",
+    "@rushstack/heft-web-rig": "0.7.2",
+    "@types/heft-jest": "1.0.2",
+    "release-it": "15.0.0-esm.3",
+    "prettier": "2.5.1",
+    "@spacet.me/news-fragments": "1.15.2-1"
+  }
 }
