@@ -1,0 +1,1 @@
+Added integer searching support.

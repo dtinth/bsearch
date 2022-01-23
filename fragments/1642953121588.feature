@@ -1,0 +1,1 @@
+Added ES modules and TypeScript definition.
