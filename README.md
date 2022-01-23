@@ -28,6 +28,10 @@
 [firstelementasync]: https://apiref.page/package/bsearch/firstElementAsync
 [lastelementasync]: https://apiref.page/package/bsearch/lastElementAsync
 
+## API reference
+
+<https://apiref.page/package/bsearch>
+
 ## Example: Looking up chapter from page number
 
 Suppose you have an array of chapters in a book.
