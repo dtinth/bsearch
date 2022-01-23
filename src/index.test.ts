@@ -48,22 +48,24 @@ describe('lastElement', () => {
   })
 })
 
-describe('largestFloat', () => {
-  it('finds the largest floating point number', () => {
+describe('largestFloatAsync', () => {
+  it('finds the largest floating point number', async () => {
     const measureText = (fontSize: number, text: string) => {
       return text.length * fontSize
     }
     const idealFontSize = (text: string) => {
-      return bsearch.largestFloat(
+      return bsearch.largestFloatAsync(
         1,
         64,
-        (size) => measureText(size, text) <= 1280,
+        async (size) => measureText(size, text) <= 1280,
       )
     }
-    expect(idealFontSize('hi')).toBe(64)
-    expect(idealFontSize('there is just too much text to fit here!')).toBe(32)
+    expect(await idealFontSize('hi')).toBe(64)
     expect(
-      idealFontSize(
+      await idealFontSize('there is just too much text to fit here!'),
+    ).toBe(32)
+    expect(
+      await idealFontSize(
         'there is just too much text to fit here so it has to be scaled down',
       ),
     ).toBeCloseTo(19.104477611940297)

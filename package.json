@@ -15,7 +15,16 @@
     "type": "git",
     "url": "git://github.com/dtinth/bsearch.git"
   },
-  "author": "Thai Pangsakulyanont <org.yi.dttvb@gmail.com>",
+  "keywords": [
+    "bsearch",
+    "binary search",
+    "async",
+    "await",
+    "promise",
+    "upper_bound",
+    "lower_bound"
+  ],
+  "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "files": [

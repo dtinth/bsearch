@@ -8,25 +8,49 @@
 export function firstElement<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => boolean): T | undefined;
 
 // @public
+export function firstElementAsync<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>): Promise<T | undefined>;
+
+// @public
 export function firstIndex<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => boolean): number;
+
+// @public
+export function firstIndexAsync<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>): Promise<number>;
 
 // @public
 export function firstInt(min: number, max: number, predicate: (value: number) => boolean): number | undefined;
 
 // @public
+export function firstIntAsync(min: number, max: number, predicate: (value: number) => PromiseLike<boolean>): Promise<number | undefined>;
+
+// @public
 export function largestFloat(min: number, max: number, predicate: (value: number) => boolean, maxIterations?: number): number | undefined;
+
+// @public
+export function largestFloatAsync(min: number, max: number, predicate: (value: number) => PromiseLike<boolean>, maxIterations?: number): Promise<number | undefined>;
 
 // @public
 export function lastElement<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => boolean): T | undefined;
 
 // @public
+export function lastElementAsync<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>): Promise<T | undefined>;
+
+// @public
 export function lastIndex<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => boolean): number;
+
+// @public
+export function lastIndexAsync<T>(array: readonly T[], predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>): Promise<number>;
 
 // @public
 export function lastInt(min: number, max: number, predicate: (value: number) => boolean): number | undefined;
 
 // @public
+export function lastIntAsync(min: number, max: number, predicate: (value: number) => PromiseLike<boolean>): Promise<number | undefined>;
+
+// @public
 export function smallestFloat(min: number, max: number, predicate: (value: number) => boolean, maxIterations?: number): number | undefined;
+
+// @public
+export function smallestFloatAsync(min: number, max: number, predicate: (value: number) => PromiseLike<boolean>, maxIterations?: number): Promise<number | undefined>;
 
 // (No @packageDocumentation comment for this package)
 
