@@ -7,13 +7,13 @@
     "test": "heft test",
     "build": "heft build",
     "prepare": "heft build && ./scripts/generate-api-docs",
-    "release": "release-it",
+    "release": "./scripts/release",
     "format": "prettier --write .",
     "api": "./scripts/generate-api-docs"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dtinth/bsearch.git"
+    "url": "git+https://github.com/dtinth/bsearch.git"
   },
   "keywords": [
     "bsearch",
@@ -38,10 +38,13 @@
   "docModel": "./dist/bsearch.api.json",
   "devDependencies": {
     "@rushstack/heft": "0.44.2",
-    "@rushstack/heft-web-rig": "0.7.2",
+    "@rushstack/heft-web-rig": "0.8.2",
     "@types/heft-jest": "1.0.2",
-    "release-it": "15.0.0-esm.3",
     "prettier": "2.5.1",
-    "@spacet.me/news-fragments": "1.15.2-1"
+    "@changesets/cli": "2.20.0"
+  },
+  "homepage": "https://github.com/dtinth/bsearch#readme",
+  "bugs": {
+    "url": "https://github.com/dtinth/bsearch#issues"
   }
 }
