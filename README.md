@@ -32,6 +32,8 @@
 
 <https://apiref.page/package/bsearch>
 
+![API reference screenshot](https://ss.dt.in.th/api/screenshots/apiref-bsearch.png)
+
 ## Example: Looking up chapter from page number
 
 Suppose you have an array of chapters in a book.
