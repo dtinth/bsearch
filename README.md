@@ -32,7 +32,7 @@
 
 <https://apiref.page/package/bsearch>
 
-![API reference screenshot](https://ss.dt.in.th/api/screenshots/apiref-bsearch.png)
+[![API reference screenshot](https://ss.dt.in.th/api/screenshots/apiref-bsearch.png)](https://apiref.page/package/bsearch)
 
 ## Example: Looking up chapter from page number
 
