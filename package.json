@@ -37,14 +37,14 @@
   "types": "./dist/bsearch.d.ts",
   "docModel": "./dist/bsearch.api.json",
   "devDependencies": {
-    "@rushstack/heft": "0.45.12",
-    "@rushstack/heft-web-rig": "0.10.15",
+    "@rushstack/heft": "0.48.7",
+    "@rushstack/heft-web-rig": "0.12.10",
     "@types/heft-jest": "1.0.3",
     "prettier": "2.7.1",
     "@changesets/cli": "2.25.0"
   },
   "homepage": "https://github.com/dtinth/bsearch#readme",
   "bugs": {
-    "url": "https://github.com/dtinth/bsearch#issues"
+    "url": "https://github.com/dtinth/bsearch/issues"
   }
 }
