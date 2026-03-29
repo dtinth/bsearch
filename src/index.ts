@@ -15,17 +15,17 @@ export function smallestInt(
   max: number,
   predicate: (value: number) => boolean,
 ): number | undefined {
-  let found: number | undefined
+  let found: number | undefined;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
+    const mid = Math.floor((min + max) / 2);
     if (predicate(mid)) {
-      found = mid
-      max = mid - 1
+      found = mid;
+      max = mid - 1;
     } else {
-      min = mid + 1
+      min = mid + 1;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -39,10 +39,8 @@ export function firstIndex<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): number {
-  const found = smallestInt(0, array.length - 1, (index) =>
-    predicate(array[index], index, array),
-  )
-  return found === undefined ? -1 : found
+  const found = smallestInt(0, array.length - 1, (index) => predicate(array[index], index, array));
+  return found === undefined ? -1 : found;
 }
 
 /**
@@ -56,8 +54,8 @@ export function firstElement<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): T | undefined {
-  const index = firstIndex(array, predicate)
-  return index === -1 ? undefined : array[index]
+  const index = firstIndex(array, predicate);
+  return index === -1 ? undefined : array[index];
 }
 
 /**
@@ -73,17 +71,17 @@ export function largestInt(
   max: number,
   predicate: (value: number) => boolean,
 ): number | undefined {
-  let found: number | undefined
+  let found: number | undefined;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
+    const mid = Math.floor((min + max) / 2);
     if (predicate(mid)) {
-      found = mid
-      min = mid + 1
+      found = mid;
+      min = mid + 1;
     } else {
-      max = mid - 1
+      max = mid - 1;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -97,10 +95,8 @@ export function lastIndex<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): number {
-  const found = largestInt(0, array.length - 1, (index) =>
-    predicate(array[index], index, array),
-  )
-  return found === undefined ? -1 : found
+  const found = largestInt(0, array.length - 1, (index) => predicate(array[index], index, array));
+  return found === undefined ? -1 : found;
 }
 
 /**
@@ -114,8 +110,8 @@ export function lastElement<T>(
   array: readonly T[],
   predicate: (value: T, index: number, array: readonly T[]) => boolean,
 ): T | undefined {
-  const index = lastIndex(array, predicate)
-  return index === -1 ? undefined : array[index]
+  const index = lastIndex(array, predicate);
+  return index === -1 ? undefined : array[index];
 }
 
 /**
@@ -133,17 +129,17 @@ export function smallestFloat(
   predicate: (value: number) => boolean,
   maxIterations = 64,
 ): number | undefined {
-  let found: number | undefined
+  let found: number | undefined;
   for (let i = 0; i < maxIterations; i++) {
-    const mid = (min + max) / 2
+    const mid = (min + max) / 2;
     if (predicate(mid)) {
-      found = mid
-      max = mid
+      found = mid;
+      max = mid;
     } else {
-      min = mid
+      min = mid;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -161,17 +157,17 @@ export function largestFloat(
   predicate: (value: number) => boolean,
   maxIterations = 64,
 ): number | undefined {
-  let found: number | undefined
+  let found: number | undefined;
   for (let i = 0; i < maxIterations; i++) {
-    const mid = (min + max) / 2
+    const mid = (min + max) / 2;
     if (predicate(mid)) {
-      found = mid
-      min = mid
+      found = mid;
+      min = mid;
     } else {
-      max = mid
+      max = mid;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -187,17 +183,17 @@ export async function smallestIntAsync(
   max: number,
   predicate: (value: number) => PromiseLike<boolean>,
 ): Promise<number | undefined> {
-  let found: number | undefined
+  let found: number | undefined;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
+    const mid = Math.floor((min + max) / 2);
     if (await predicate(mid)) {
-      found = mid
-      max = mid - 1
+      found = mid;
+      max = mid - 1;
     } else {
-      min = mid + 1
+      min = mid + 1;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -209,16 +205,12 @@ export async function smallestIntAsync(
  */
 export async function firstIndexAsync<T>(
   array: readonly T[],
-  predicate: (
-    value: T,
-    index: number,
-    array: readonly T[],
-  ) => PromiseLike<boolean>,
+  predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>,
 ): Promise<number> {
   const found = await smallestIntAsync(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
-  )
-  return found === undefined ? -1 : found
+  );
+  return found === undefined ? -1 : found;
 }
 
 /**
@@ -230,14 +222,10 @@ export async function firstIndexAsync<T>(
  */
 export async function firstElementAsync<T>(
   array: readonly T[],
-  predicate: (
-    value: T,
-    index: number,
-    array: readonly T[],
-  ) => PromiseLike<boolean>,
+  predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>,
 ): Promise<T | undefined> {
-  const index = await firstIndexAsync(array, predicate)
-  return index === -1 ? undefined : array[index]
+  const index = await firstIndexAsync(array, predicate);
+  return index === -1 ? undefined : array[index];
 }
 
 /**
@@ -253,17 +241,17 @@ export async function largestIntAsync(
   max: number,
   predicate: (value: number) => PromiseLike<boolean>,
 ): Promise<number | undefined> {
-  let found: number | undefined
+  let found: number | undefined;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
+    const mid = Math.floor((min + max) / 2);
     if (await predicate(mid)) {
-      found = mid
-      min = mid + 1
+      found = mid;
+      min = mid + 1;
     } else {
-      max = mid - 1
+      max = mid - 1;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -275,16 +263,12 @@ export async function largestIntAsync(
  */
 export async function lastIndexAsync<T>(
   array: readonly T[],
-  predicate: (
-    value: T,
-    index: number,
-    array: readonly T[],
-  ) => PromiseLike<boolean>,
+  predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>,
 ): Promise<number> {
   const found = await largestIntAsync(0, array.length - 1, (index) =>
     predicate(array[index], index, array),
-  )
-  return found === undefined ? -1 : found
+  );
+  return found === undefined ? -1 : found;
 }
 
 /**
@@ -296,14 +280,10 @@ export async function lastIndexAsync<T>(
  */
 export async function lastElementAsync<T>(
   array: readonly T[],
-  predicate: (
-    value: T,
-    index: number,
-    array: readonly T[],
-  ) => PromiseLike<boolean>,
+  predicate: (value: T, index: number, array: readonly T[]) => PromiseLike<boolean>,
 ): Promise<T | undefined> {
-  const index = await lastIndexAsync(array, predicate)
-  return index === -1 ? undefined : array[index]
+  const index = await lastIndexAsync(array, predicate);
+  return index === -1 ? undefined : array[index];
 }
 
 /**
@@ -321,17 +301,17 @@ export async function smallestFloatAsync(
   predicate: (value: number) => PromiseLike<boolean>,
   maxIterations = 64,
 ): Promise<number | undefined> {
-  let found: number | undefined
+  let found: number | undefined;
   for (let i = 0; i < maxIterations; i++) {
-    const mid = (min + max) / 2
+    const mid = (min + max) / 2;
     if (await predicate(mid)) {
-      found = mid
-      max = mid
+      found = mid;
+      max = mid;
     } else {
-      min = mid
+      min = mid;
     }
   }
-  return found
+  return found;
 }
 
 /**
@@ -349,15 +329,15 @@ export async function largestFloatAsync(
   predicate: (value: number) => PromiseLike<boolean>,
   maxIterations = 64,
 ): Promise<number | undefined> {
-  let found: number | undefined
+  let found: number | undefined;
   for (let i = 0; i < maxIterations; i++) {
-    const mid = (min + max) / 2
+    const mid = (min + max) / 2;
     if (await predicate(mid)) {
-      found = mid
-      min = mid
+      found = mid;
+      min = mid;
     } else {
-      max = mid
+      max = mid;
     }
   }
-  return found
+  return found;
 }
