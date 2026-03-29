@@ -27,10 +27,7 @@
   ],
   "type": "module",
   "exports": {
-    ".": {
-      "typedoc": "./src/index.ts",
-      "default": "./dist/index.mjs"
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "publishConfig": {

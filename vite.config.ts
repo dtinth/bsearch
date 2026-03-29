@@ -5,12 +5,9 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   pack: {
-    dts: {
-      tsgo: true,
-    },
-    exports: {
-      devExports: "typedoc",
-    },
+    dts: { tsgo: true, sourcemap: true },
+    exports: true,
+    unbundle: true,
     sourcemap: true,
   },
   lint: {
