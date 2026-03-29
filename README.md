@@ -40,13 +40,13 @@ Suppose you have an array of chapters in a book.
 
 ```js
 const book = [
-  { page: 0, chapter: 'Front Cover' },
-  { page: 2, chapter: 'Preamble' },
-  { page: 5, chapter: 'Table of Contents' },
-  { page: 8, chapter: 'Chapter 1' },
-  { page: 29, chapter: 'Chapter 2' },
-  { page: 48, chapter: 'Chapter 3' },
-]
+  { page: 0, chapter: "Front Cover" },
+  { page: 2, chapter: "Preamble" },
+  { page: 5, chapter: "Table of Contents" },
+  { page: 8, chapter: "Chapter 1" },
+  { page: 29, chapter: "Chapter 2" },
+  { page: 48, chapter: "Chapter 3" },
+];
 ```
 
 To answer the question: **“What chapter am I on if I’m on page 20?”**
@@ -57,8 +57,8 @@ To answer the question: **“What chapter am I on if I’m on page 20?”**
 With that, the following code finds the answer:
 
 ```js
-import * as bsearch from 'bsearch'
-const chapter = bsearch.lastElement(book, (chapter) => 20 >= chapter.page)
+import * as bsearch from "bsearch";
+const chapter = bsearch.lastElement(book, (chapter) => 20 >= chapter.page);
 ```
 
 ## Example: Insertion index
@@ -66,7 +66,7 @@ const chapter = bsearch.lastElement(book, (chapter) => 20 >= chapter.page)
 Suppose you have an array of numbers.
 
 ```js
-const numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+const numbers = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 ```
 
 You want to insert a new number `n` into the array while maintaining the sorted order. There are two ways:
@@ -74,16 +74,15 @@ You want to insert a new number `n` into the array while maintaining the sorted 
 - Finding the first possible insertion index:
 
   ```js
-  const indexToInsertBefore = bsearch.firstIndex(numbers, (x) => n <= x)
-  const insertionIndex =
-    indexToInsertBefore === -1 ? numbers.length : indexToInsertBefore
+  const indexToInsertBefore = bsearch.firstIndex(numbers, (x) => n <= x);
+  const insertionIndex = indexToInsertBefore === -1 ? numbers.length : indexToInsertBefore;
   ```
 
 - Finding the last possible insertion index:
 
   ```js
-  const indexToInsertAfter = bsearch.lastIndex(numbers, (x) => n >= x)
-  const insertionIndex = indexToInsertBefore + 1
+  const indexToInsertAfter = bsearch.lastIndex(numbers, (x) => n >= x);
+  const insertionIndex = indexToInsertBefore + 1;
   ```
 
 ## Example: Text fitting
@@ -92,7 +91,7 @@ Suppose you want to draw some text in a canvas. You want to find out what is the
 
 ```js
 const fontSize = bsearch.largestInt(1, 1000, (fontSize) => {
-  ctx.font = `${fontSize}px sans-serif`
-  return ctx.measureText(text).width <= availableWidth
-})
+  ctx.font = `${fontSize}px sans-serif`;
+  return ctx.measureText(text).width <= availableWidth;
+});
 ```

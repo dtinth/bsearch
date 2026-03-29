@@ -2,49 +2,51 @@
   "name": "bsearch",
   "version": "1.0.0",
   "description": "Binary Search for JavaScript",
-  "main": "./lib-commonjs/index.js",
-  "scripts": {
-    "test": "heft test",
-    "build": "heft build",
-    "prepare": "heft build && ./scripts/generate-api-docs",
-    "release": "./scripts/release",
-    "format": "prettier --write .",
-    "api": "./scripts/generate-api-docs"
+  "keywords": [
+    "async",
+    "await",
+    "binary search",
+    "bsearch",
+    "lower_bound",
+    "promise",
+    "upper_bound"
+  ],
+  "homepage": "https://github.com/dtinth/bsearch#readme",
+  "bugs": {
+    "url": "https://github.com/dtinth/bsearch/issues"
   },
+  "license": "MIT",
+  "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dtinth/bsearch.git"
   },
-  "keywords": [
-    "bsearch",
-    "binary search",
-    "async",
-    "await",
-    "promise",
-    "upper_bound",
-    "lower_bound"
-  ],
-  "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
-  "license": "MIT",
-  "readmeFilename": "README.md",
   "files": [
     "src",
-    "lib",
-    "lib-commonjs",
     "dist"
   ],
-  "module": "./lib/index.js",
-  "types": "./dist/bsearch.d.ts",
-  "docModel": "./dist/bsearch.api.json",
-  "devDependencies": {
-    "@rushstack/heft": "0.48.7",
-    "@rushstack/heft-web-rig": "0.12.10",
-    "@types/heft-jest": "1.0.3",
-    "prettier": "2.7.1",
-    "@changesets/cli": "2.25.0"
+  "type": "module",
+  "scripts": {
+    "test": "vp test",
+    "build": "vp pack",
+    "prepare": "vp config",
+    "release": "./scripts/release",
+    "format": "prettier --write .",
+    "api": "./scripts/generate-api-docs",
+    "dev": "vp pack --watch",
+    "check": "vp check",
+    "prepublishOnly": "vp run build"
   },
-  "homepage": "https://github.com/dtinth/bsearch#readme",
-  "bugs": {
-    "url": "https://github.com/dtinth/bsearch/issues"
-  }
+  "devDependencies": {
+    "@changesets/cli": "^2.30.0",
+    "vite-plus": "^0.1.14"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
+  },
+  "readmeFilename": "README.md"
 }
