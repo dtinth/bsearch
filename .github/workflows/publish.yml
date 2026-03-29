@@ -22,8 +22,14 @@ jobs:
           fetch-depth: 0
       - name: Setup
         uses: ./.github/actions/setup
+      - name: Configure Git user
+        run: |
+          git config --global user.name dtinth-bot
+          git config --global user.email dtinth-bot@users.noreply.github.com
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
+        with:
+          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
