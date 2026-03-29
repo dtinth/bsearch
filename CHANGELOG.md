@@ -1,5 +1,11 @@
 [//]: # "s-1.0.0"
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 94dffd5: Publish source code, source maps, and declaration maps along with the package
+
 ## 2.0.0-next.0
 
 ### Major Changes
