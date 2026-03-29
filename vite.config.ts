@@ -5,11 +5,12 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   pack: {
-    entry: "src/cli.ts",
     dts: {
       tsgo: true,
     },
-    exports: true,
+    exports: {
+      devExports: "typedoc",
+    },
     sourcemap: true,
   },
   lint: {

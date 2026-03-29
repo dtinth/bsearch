@@ -26,6 +26,19 @@
     "dist"
   ],
   "type": "module",
+  "exports": {
+    ".": {
+      "typedoc": "./src/index.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.mjs",
+      "./package.json": "./package.json"
+    }
+  },
   "scripts": {
     "test": "vp test",
     "build": "vp pack",
@@ -39,6 +52,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.30.0",
+    "@typescript/native-preview": "7.0.0-dev.20260328.1",
     "vite-plus": "^0.1.14"
   },
   "packageManager": "pnpm@10.33.0",
