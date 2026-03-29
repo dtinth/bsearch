@@ -1,5 +1,11 @@
 [//]: # "s-1.0.0"
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- b6ec3b0: This package is now ESM-only.
+
 # [1.0.0] - (2022-01-23)
 
 ## Documentation
