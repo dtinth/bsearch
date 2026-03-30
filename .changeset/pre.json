@@ -1,8 +1,0 @@
-{
-  "mode": "exit",
-  "tag": "next",
-  "initialVersions": {
-    "bsearch": "1.0.0"
-  },
-  "changesets": ["cold-ideas-clean", "nine-ghosts-flow"]
-}
